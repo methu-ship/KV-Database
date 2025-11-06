@@ -20,7 +20,7 @@ impl KvEngine {
         
         let index_path = data_dir.join("index.json");
         
-        // ✅ Load existing index or create new one
+        // Load existing index or create new one
         let index = HashIndex::load_from_file(&index_path).unwrap_or_else(|_| HashIndex::new());
         
         let mut segments = VecDeque::new();
@@ -28,7 +28,7 @@ impl KvEngine {
         let segment = Segment::new(segment_path)?;
         segments.push_back(segment);
         
-        // ✅ If index was loaded, we need to find the latest segment
+        // If index was loaded, we need to find the latest segment
         let mut next_segment_id = 1;
         while data_dir.join(format!("segment_{:04}.db", next_segment_id)).exists() {
             let segment_path = data_dir.join(format!("segment_{:04}.db", next_segment_id));
@@ -65,7 +65,7 @@ impl KvEngine {
         };
         self.index.set(key.to_string(), position);
         
-        // ✅ CRITICAL: Save index to disk after every write
+        // Save index to disk after every write
         self.index.save_to_file(&self.index_path)?;
         
         self.current_segment_size += record_size;

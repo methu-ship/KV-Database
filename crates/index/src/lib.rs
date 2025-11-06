@@ -39,7 +39,6 @@ impl HashIndex {
         self.index.contains_key(key)
     }
     
-    // ✅ ADD THESE TWO METHODS:
     pub fn save_to_file(&self, path: &Path) -> Result<()> {
         let file = OpenOptions::new()
             .create(true)

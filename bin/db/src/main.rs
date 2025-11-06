@@ -26,7 +26,6 @@ fn main() -> Result<()> {
             println!("OK");
         }
         cli::Commands::Delete { key } => {
-            // Implement delete as setting a tombstone
             engine.set(&key, "__TOMBSTONE__")?;
             println!("OK");
         }
