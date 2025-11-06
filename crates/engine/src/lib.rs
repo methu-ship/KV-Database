@@ -11,7 +11,7 @@ pub struct KvEngine {
     max_segment_size: u64,
     data_dir: PathBuf,
     next_segment_id: u32,
-    index_path: PathBuf, // Add this
+    index_path: PathBuf, 
 }
 
 impl KvEngine {
@@ -44,7 +44,7 @@ impl KvEngine {
             max_segment_size,
             data_dir,
             next_segment_id,
-            index_path, // Store the path
+            index_path, 
         })
     }
     
