@@ -1,2 +1,6 @@
-/target
-.target
+# Rust
+target/
+**/target/
+
+# Optional: Also ignore Cargo.lock for libraries (but keep it for binaries)
+ Cargo.lock
